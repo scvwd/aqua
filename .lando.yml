@@ -1,0 +1,39 @@
+name: scvwd
+recipe: drupal8
+config:
+  webroot: web
+  drush: 8.3.2
+  database: mysql:5.7
+  php: 7.2
+  xdebug: true
+proxy:
+  mailhog:
+    - mail.scvwd.lndo.site
+events:
+  post-db-import:
+    - appserver: /app/lando/tooling/post-db-import.sh
+services:
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  appserver:
+    #config:
+    #  config: /app/lando/config/php/php.ini
+    build_as_root:
+      - /app/lando/tooling/build.sh     
+  # set up d7 database for migration
+  d7:
+    type: mysql:5.7
+    portforward: true
+    creds:
+      user: drupal7
+      password: drupal7
+      database: drupal7
+    config:
+      confd: /app/lando/config/mysql
+tooling:
+  drush:
+    service: appserver
+    # run drush from any directory
+    cmd: drush --root=/app/web --uri=http://scvwd.lndo.site
