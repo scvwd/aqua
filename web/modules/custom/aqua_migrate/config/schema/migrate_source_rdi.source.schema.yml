@@ -1,0 +1,13 @@
+migrate_plus.source.rdi:
+  type: migrate_source
+  label: "Recursive Directory Iterator"
+  mapping:
+    path:
+      type: string
+      label: "Path to the source files"
+    filter:
+      type: string
+      label: "Flags for the RegexIterator"
+    iterator_class:
+      type: string
+      label: "Full class name that includes namespace for an alternative directory files reader"

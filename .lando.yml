@@ -2,7 +2,7 @@ name: scvwd
 recipe: drupal8
 config:
   webroot: web
-  drush: 8.3.2
+  drush: 9.7.2
   database: mysql:5.7
   php: 7.2
   xdebug: true
@@ -21,7 +21,7 @@ services:
     #config:
     #  config: /app/lando/config/php/php.ini
     build_as_root:
-      - /app/lando/tooling/build.sh     
+      - /app/lando/tooling/build.sh
   # set up d7 database for migration
   d7:
     type: mysql:5.7

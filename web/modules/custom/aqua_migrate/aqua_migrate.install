@@ -1,0 +1,160 @@
+<?php
+
+function aqua_migrate_uninstall() {
+  db_query("DELETE FROM {config} WHERE name LIKE 'migrate_plus.migration%'");
+  drupal_flush_all_caches();
+}
+
+/**
+ * Remove unused fields from content types.
+ */
+function aqua_migrate_update_8001() {
+  $fields = array(
+    'field_address',
+    'field_page_reference',
+    'field_phone',
+    'field_physical_address',
+  );
+
+  $bundles = array(
+    'biography',
+    'blog',
+    'calender_events',
+    'contact_information',
+    'department',
+    'embed_widget',
+    'faq',
+    'factoid',
+    'forum',
+    'large_promo',
+    'news_article',
+    'news_release',
+    'page',
+    'poll',
+    'promotions',
+    'services',
+    'vertical_promo_tiles',
+  );
+
+  /* @var $entityFieldManager Drupal\Core\Entity\EntityFieldManager */
+  $entityFieldManager = Drupal::service('entity_field.manager');
+
+  foreach ($fields as $field) {
+    foreach ($bundles as $bundle) {
+      $bundle_fields = $entityFieldManager->getFieldDefinitions('node', $bundle);
+      if (isset($bundle_fields[$field])) {
+        $bundle_fields[$field]->delete();
+      }
+    }
+  }
+}
+
+/**
+ * Fix redirect loops.
+ */
+function aqua_migrate_update_8002() {
+  if (\Drupal::moduleHandler()->moduleExists('redirect')) {
+    // Delete any redirect if the url alias is the source path.
+    $aliases = db_query("SELECT DISTINCT source, alias FROM {url_alias}");
+    foreach ($aliases as $row) {
+      $alias = substr($row->alias, 1);
+      $redirect = 'internal:' . $row->source;
+      if ($deleted = \Drupal::database()->delete('redirect')
+        ->condition('redirect_source__path', $alias)
+        ->condition('redirect_redirect__uri', $redirect)
+        ->execute()) {
+        $message = t('Deleted redirect from :alias to :redirect.', [':alias' => $alias, ':redirect' => $redirect]);
+        \Drupal::logger('aqua_migrate')->notice($message);
+      }
+    }
+    drupal_flush_all_caches();
+  }
+}
+
+/**
+ * Remove duplicate url aliases.
+ */
+function aqua_migrate_update_8003() {
+  db_query("DROP TABLE IF EXISTS {url_alias_tmp}");
+  db_query("DROP TABLE IF EXISTS {url_alias_backup}");
+  db_query("CREATE TABLE {url_alias_tmp} LIKE {url_alias}");
+  db_query("INSERT INTO {url_alias_tmp} (source, alias, langcode) SELECT DISTINCT source, alias, 'en' FROM {url_alias}");
+  db_query("RENAME TABLE {url_alias} TO {url_alias_backup}, {url_alias_tmp} TO {url_alias}");
+  \Drupal::logger('aqua_migrate')->notice(t('Removed duplicate aliases in table url_alias'));
+  drupal_flush_all_caches();
+}
+
+/**
+ * Update redirects.
+ */
+function aqua_migrate_update_8004() {
+  if (\Drupal::moduleHandler()->moduleExists('redirect')) {
+    $redirects = [
+      'taxonomy/term/371' => 'internal:/node/6806',
+    ];
+    foreach ($redirects as $source => $redirect) {
+      if ($updated = \Drupal::database()->update('redirect')
+        ->fields(['redirect_redirect__uri' => $redirect])
+        ->condition('redirect_source__path', $source)
+        ->execute()) {
+        $message = t('Update redirect from :source to :redirect.', [':source' => $source, ':redirect' => $redirect]);
+        \Drupal::logger('aqua_migrate')->notice($message);
+      }
+    }
+    drupal_flush_all_caches();
+  }
+}
+
+/**
+ * Update alert banner text to remove inline styles.
+ */
+function aqua_migrate_update_8005() {
+  $node = \Drupal\node\Entity\Node::load(35452);
+  $node->set('body', [
+    'summary' => '',
+    'value' => '<p class="rtecenter"><a href="/measles">' . t('Case of Measles Reported in Austin. Learn more here.') . '</a></p>',
+    'format' => 'author_html',
+  ]);
+  $node->save();
+}
+
+/**
+ * Change front page block text format to Full HTML.
+ */
+function aqua_migrate_update_8006() {
+  $block = \Drupal\block_content\Entity\BlockContent::load(41);
+  $block->set('body', [
+    'summary' => '',
+    'value' => '<div class="video-groups">
+    <div class="video-group"><a href="https://www.youtube.com/watch?v=vMAW3VFflC8&amp;list=PL361827DAF822B6FC&amp;index=1" target="_blank"><img alt="' . t('Watch CityView') . '" data-entity-type="" data-entity-uuid="" src="/themes/custom/coa/images/cityview.png" /></a>
+    <h3><a href="https://www.youtube.com/watch?v=vMAW3VFflC8&amp;list=PL361827DAF822B6FC&amp;index=1" target="_blank">' . t('Watch CityView') . '</a></h3>
+
+    <p>' . t('A news show covering important City programs, events, and information.') . '</p>
+    </div>
+
+    <div class="video-group"><a href="/content/channel-6#channel6live"><img alt="' . t('Watch Live Stream') . '" data-entity-type="" data-entity-uuid="" src="/themes/custom/coa/images/livestream.png" /></a>
+
+    <h3><a href="/content/channel-6#channel6live">' . t('Watch Live Stream') . '</a></h3>
+
+    <p>' . t('ATXN is the City’s television station that covers City Council meetings, news conferences, and educational videos.') . '</p>
+    </div>
+    <a class="btn" href="https://www.youtube.com/user/austintexasgov/videos" target="_blank">' . t('Watch More ATXN Videos') . '</a></div>',
+    'format' => 'full_html',
+  ]);
+  $block->save();
+}
+
+/**
+ * Update text format to fix iframe in Map Embed.
+ */
+function aqua_migrate_update_8007() {
+  $nids = [57607, 57835, 58446, 58447];
+  foreach ($nids as $nid) {
+    $node = \Drupal\node\Entity\Node::load($nid);
+    $node->set('field_ms_video_map_embed', [
+      'value' => $node->field_ms_video_map_embed->value,
+      'format' => 'full_html',
+    ]);
+    $node->save();
+  }
+}
