@@ -1,0 +1,17 @@
+uuid: 6ef43f12-d14a-4239-81d8-c219b7649ed8
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: HR
+type: hr
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true

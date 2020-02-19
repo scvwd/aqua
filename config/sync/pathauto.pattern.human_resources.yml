@@ -1,0 +1,22 @@
+uuid: c83c4685-1722-4a65-875d-33b1a5b50259
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: human_resources
+label: 'Human Resources'
+type: 'canonical_entities:node'
+pattern: 'hr/[node:title]'
+selection_criteria:
+  7a577093-dfc3-4c81-91c6-ed47f6c9df76:
+    id: node_type
+    bundles:
+      hr: hr
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 7a577093-dfc3-4c81-91c6-ed47f6c9df76
+selection_logic: and
+weight: -5
+relationships: {  }

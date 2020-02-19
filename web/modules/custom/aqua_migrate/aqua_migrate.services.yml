@@ -1,10 +1,6 @@
 services:
-  aqua_migrate.stream_wrapper:
-    class: Drupal\aqua_migrate\StreamWrapper\AwsS3StreamWrapper
-    tags:
-      - { name: stream_wrapper, scheme: s3 }
   aqua_migrate.config_overrider:
-    class: \Drupal\aqua_migrate\CoaMigrateOverrides
+    class: \Drupal\aqua_migrate\AquaMigrateOverrides
     tags:
       - { name: config.factory.override, priority: 20 }
     arguments: ["@config.factory"]

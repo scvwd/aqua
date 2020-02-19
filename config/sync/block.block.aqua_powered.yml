@@ -1,0 +1,22 @@
+uuid: ad3ce897-f31a-4951-8129-d04c9a3e9340
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - aqua
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: aqua_powered
+theme: aqua
+region: footer
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

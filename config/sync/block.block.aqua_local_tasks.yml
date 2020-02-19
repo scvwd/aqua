@@ -1,0 +1,22 @@
+uuid: 9a69e9a7-5fc0-49dc-8372-bc1ea02e0b86
+langcode: en
+status: true
+dependencies:
+  theme:
+    - aqua
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: aqua_local_tasks
+theme: aqua
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

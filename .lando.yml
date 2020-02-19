@@ -22,6 +22,8 @@ services:
     #  config: /app/lando/config/php/php.ini
     build_as_root:
       - /app/lando/tooling/build.sh
+    build:
+      - /app/lando/tooling/drush-config.sh
   # set up d7 database for migration
   d7:
     type: mysql:5.7

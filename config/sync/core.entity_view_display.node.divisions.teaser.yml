@@ -1,0 +1,34 @@
+uuid: 641e8383-29f7-439c-a0ca-6f36572c8337
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.divisions.body
+    - field.field.node.divisions.field_personnel
+    - field.field.node.divisions.field_services
+    - node.type.divisions
+  module:
+    - text
+    - user
+id: node.divisions.teaser
+targetEntityType: node
+bundle: divisions
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_personnel: true
+  field_services: true

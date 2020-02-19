@@ -1,0 +1,21 @@
+uuid: 7540dcd3-65a7-4b5e-8b3b-80e24bacdf62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.hr
+  module:
+    - text
+id: node.hr.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: hr
+label: Teaser
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

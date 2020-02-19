@@ -1,0 +1,23 @@
+uuid: 55f800a7-332f-4a00-b86f-fe55f7d9ac1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.people_and_projects
+  module:
+    - text
+id: node.people_and_projects.body
+field_name: body
+entity_type: node
+bundle: people_and_projects
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

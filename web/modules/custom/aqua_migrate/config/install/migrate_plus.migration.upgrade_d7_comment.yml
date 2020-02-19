@@ -1,0 +1,206 @@
+uuid: 0d4ce0e9-a7c8-436f-aa46-0501f850440d
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_comment
+class: Drupal\comment\Plugin\migrate\D7Comment
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: Comments
+source:
+  plugin: d7_comment
+  constants:
+    entity_type: node
+process:
+  cid:
+    -
+      plugin: get
+      source: cid
+  pid:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: pid
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_comment
+  entity_id:
+    -
+      plugin: migration_lookup
+      migration:
+        - upgrade_d7_node
+        - upgrade_d7_node_translation
+      source: nid
+    -
+      plugin: skip_on_empty
+      method: row
+  entity_type:
+    -
+      plugin: get
+      source: constants/entity_type
+  comment_type:
+    -
+      plugin: migration_lookup
+      source: node_type
+      migration: upgrade_d7_comment_type
+    -
+      plugin: skip_on_empty
+      method: row
+  langcode:
+    -
+      plugin: get
+      source: language
+  field_name:
+    -
+      plugin: get
+      source: '@comment_type'
+  subject:
+    -
+      plugin: get
+      source: subject
+  uid:
+    -
+      plugin: get
+      source: uid
+  name:
+    -
+      plugin: get
+      source: name
+  mail:
+    -
+      plugin: get
+      source: mail
+  homepage:
+    -
+      plugin: get
+      source: homepage
+  hostname:
+    -
+      plugin: get
+      source: hostname
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: changed
+  status:
+    -
+      plugin: get
+      source: status
+  thread:
+    -
+      plugin: get
+      source: thread
+  comment_body:
+    -
+      plugin: get
+      source: comment_body
+destination:
+  plugin: 'entity:comment'
+migration_dependencies:
+  required:
+    109: upgrade_d7_node_page
+    110: upgrade_d7_node_story
+    111: upgrade_d7_node_topichub
+    112: upgrade_d7_node_book
+    113: upgrade_d7_node_news
+    114: upgrade_d7_node_people_and_projects
+    115: upgrade_d7_node_training
+    116: upgrade_d7_node_diversity
+    117: upgrade_d7_node_featurednews
+    118: upgrade_d7_node_event
+    119: upgrade_d7_node_blog
+    120: upgrade_d7_node_webform
+    121: upgrade_d7_node_wiki
+    122: upgrade_d7_node_unit_home
+    123: upgrade_d7_node_division_home
+    124: upgrade_d7_node_office_home
+    125: upgrade_d7_node_iframe
+    126: upgrade_d7_node_videoplay
+    127: upgrade_d7_node_og
+    128: upgrade_d7_node_og2
+    129: upgrade_d7_node_slideshow_item
+    130: upgrade_d7_node_ceocorner
+    131: upgrade_d7_node_fcforms
+    132: upgrade_d7_node_hr_benefits_inclusion
+    133: upgrade_d7_node_date
+    134: upgrade_d7_node_nonagendaform
+    135: upgrade_d7_node_morenews
+    136: upgrade_d7_node_tie
+    137: upgrade_d7_node_techtips
+    138: upgrade_d7_node_sidebar
+    139: upgrade_d7_node_safe_clean_water_news
+    140: upgrade_d7_node_panel
+    141: upgrade_d7_node_photo_gallery
+    142: upgrade_d7_node_blueline
+    143: upgrade_d7_node_ceo
+    144: upgrade_d7_node_publications
+    145: upgrade_d7_node_it_calendar
+    146: upgrade_d7_node_dccs
+    147: upgrade_d7_node_poll
+    148: upgrade_d7_node_aprg
+    149: upgrade_d7_node_recruitment
+    150: upgrade_d7_node_wellness
+    151: upgrade_d7_node_cultivate_initiative
+    152: upgrade_d7_node_inclusion
+    153: upgrade_d7_node_featured_news2
+    154: upgrade_d7_node_workforce_calendar
+    155: upgrade_d7_comment_type
+  optional:
+    - upgrade_d7_comment
+    - upgrade_d7_node_page
+    - upgrade_d7_node_story
+    - upgrade_d7_node_topichub
+    - upgrade_d7_node_book
+    - upgrade_d7_node_news
+    - upgrade_d7_node_people_and_projects
+    - upgrade_d7_node_training
+    - upgrade_d7_node_diversity
+    - upgrade_d7_node_featurednews
+    - upgrade_d7_node_event
+    - upgrade_d7_node_blog
+    - upgrade_d7_node_webform
+    - upgrade_d7_node_wiki
+    - upgrade_d7_node_unit_home
+    - upgrade_d7_node_division_home
+    - upgrade_d7_node_office_home
+    - upgrade_d7_node_iframe
+    - upgrade_d7_node_videoplay
+    - upgrade_d7_node_og
+    - upgrade_d7_node_og2
+    - upgrade_d7_node_slideshow_item
+    - upgrade_d7_node_ceocorner
+    - upgrade_d7_node_fcforms
+    - upgrade_d7_node_hr_benefits_inclusion
+    - upgrade_d7_node_date
+    - upgrade_d7_node_nonagendaform
+    - upgrade_d7_node_morenews
+    - upgrade_d7_node_tie
+    - upgrade_d7_node_techtips
+    - upgrade_d7_node_sidebar
+    - upgrade_d7_node_safe_clean_water_news
+    - upgrade_d7_node_panel
+    - upgrade_d7_node_photo_gallery
+    - upgrade_d7_node_blueline
+    - upgrade_d7_node_ceo
+    - upgrade_d7_node_publications
+    - upgrade_d7_node_it_calendar
+    - upgrade_d7_node_dccs
+    - upgrade_d7_node_poll
+    - upgrade_d7_node_aprg
+    - upgrade_d7_node_recruitment
+    - upgrade_d7_node_wellness
+    - upgrade_d7_node_cultivate_initiative
+    - upgrade_d7_node_inclusion
+    - upgrade_d7_node_featured_news2
+    - upgrade_d7_node_workforce_calendar
+    - upgrade_d7_comment_type
+    - upgrade_d7_node
+    - upgrade_d7_node_translation

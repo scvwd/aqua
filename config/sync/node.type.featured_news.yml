@@ -1,0 +1,17 @@
+uuid: 9bab904b-a912-4b5c-af65-492bb04679a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Featured News'
+type: featured_news
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

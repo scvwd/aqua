@@ -1,0 +1,61 @@
+uuid: 9ef64eb6-5073-47a6-996b-1d54569808c6
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_event
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Nodes (Event)'
+source:
+  plugin: d7_node
+  node_type: event
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_event/0/status: comment
+  taxonomy_vocabulary_3:
+    plugin: sub_process
+    source: taxonomy_vocabulary_3
+    process:
+      target_id: tid
+  body:
+    plugin: get
+    source: body
+  field_calendar_event:
+    plugin: sub_process
+    source: field_calendar_event
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+destination:
+  plugin: 'entity:node'
+  default_bundle: event
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

@@ -1,0 +1,22 @@
+uuid: b8835cee-ad70-4f68-9953-04bb4e3896a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: people_and_projects
+label: 'People and Projects'
+type: 'canonical_entities:node'
+pattern: 'people-projects/[node:title]'
+selection_criteria:
+  ce649ebd-1458-4edc-8a91-97322f0acd0e:
+    id: node_type
+    bundles:
+      people_and_projects: people_and_projects
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ce649ebd-1458-4edc-8a91-97322f0acd0e
+selection_logic: and
+weight: -5
+relationships: {  }

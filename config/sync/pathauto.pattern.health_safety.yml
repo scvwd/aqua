@@ -1,0 +1,22 @@
+uuid: d2572764-1ba7-45a4-b2cb-0538452a25e6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: health_safety
+label: 'Health & Safety'
+type: 'canonical_entities:node'
+pattern: 'hs/[node:title]'
+selection_criteria:
+  19356365-d68b-4b1d-9beb-b9ed8bc1fda6:
+    id: node_type
+    bundles:
+      hs: hs
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 19356365-d68b-4b1d-9beb-b9ed8bc1fda6
+selection_logic: and
+weight: -5
+relationships: {  }

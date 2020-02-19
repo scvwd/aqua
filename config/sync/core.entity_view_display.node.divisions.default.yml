@@ -1,0 +1,56 @@
+uuid: 63234254-ecf8-44ce-87e0-e5f564a7bfdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.divisions.body
+    - field.field.node.divisions.field_personnel
+    - field.field.node.divisions.field_services
+    - node.type.divisions
+  module:
+    - iframe
+    - text
+    - user
+id: node.divisions.default
+targetEntityType: node
+bundle: divisions
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_personnel:
+    weight: 3
+    label: above
+    settings:
+      url: ''
+      title: ''
+      width: ''
+      height: ''
+      class: ''
+      expose_class: ''
+      frameborder: '0'
+      scrolling: auto
+      transparency: '0'
+      tokensupport: '0'
+      allowfullscreen: '0'
+    third_party_settings: {  }
+    type: iframe_default
+    region: content
+  field_services:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

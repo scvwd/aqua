@@ -1,0 +1,30 @@
+uuid: 37d4496f-78b5-4907-aea3-2cf94c411548
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_personnel
+    - node.type.divisions
+  module:
+    - iframe
+id: node.divisions.field_personnel
+field_name: field_personnel
+entity_type: node
+bundle: divisions
+label: Personnel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  class: ''
+  frameborder: '0'
+  scrolling: auto
+  transparency: '0'
+  tokensupport: '0'
+  title: ''
+  height: ''
+  width: ''
+  allowfullscreen: 0
+field_type: iframe

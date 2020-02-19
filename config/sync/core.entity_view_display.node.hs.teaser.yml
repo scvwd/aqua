@@ -1,0 +1,38 @@
+uuid: fafaedbc-b32d-46bd-bd7d-dd0f1553dc59
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hs.body
+    - field.field.node.hs.comment
+    - field.field.node.hs.field_image
+    - field.field.node.hs.field_tags
+    - field.field.node.hs.field_teaser
+    - node.type.hs
+  module:
+    - text
+    - user
+id: node.hs.teaser
+targetEntityType: node
+bundle: hs
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  comment: true
+  field_image: true
+  field_tags: true
+  field_teaser: true

@@ -1,0 +1,30 @@
+uuid: a13d59ff-df37-4c3b-8969-b98d704df946
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news_people
+  module:
+    - system
+    - views
+  theme:
+    - mayo
+id: views_block__news_people_block_1
+theme: mayo
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:news_people-block_1'
+settings:
+  id: 'views_block:news_people-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

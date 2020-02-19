@@ -1,0 +1,23 @@
+uuid: e339431a-0f58-46d4-9b3a-76ede7412363
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.hs
+  module:
+    - text
+id: node.hs.body
+field_name: body
+entity_type: node
+bundle: hs
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

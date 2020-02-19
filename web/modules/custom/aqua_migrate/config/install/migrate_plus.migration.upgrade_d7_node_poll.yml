@@ -1,0 +1,44 @@
+uuid: 44da2d89-3509-429a-9208-d822d0f3c32a
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_poll
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Nodes (Poll)'
+source:
+  plugin: d7_node
+  node_type: poll
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_poll/0/status: comment
+destination:
+  plugin: 'entity:node'
+  default_bundle: poll
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

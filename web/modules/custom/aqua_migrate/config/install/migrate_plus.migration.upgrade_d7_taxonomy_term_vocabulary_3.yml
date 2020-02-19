@@ -1,0 +1,59 @@
+uuid: 1ba738db-7f92-4c43-bba2-5bd15be91df8
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_taxonomy_term_vocabulary_3
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Taxonomy terms (Free tagging)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: vocabulary_3
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: upgrade_d7_taxonomy_vocabulary
+    source: vid
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  forum_container: is_container
+  changed: timestamp
+  langcode: language
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: vocabulary_3
+migration_dependencies:
+  required:
+    - upgrade_d7_taxonomy_vocabulary
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_taxonomy_vocabulary
+    - upgrade_d7_taxonomy_term_vocabulary_2
+    - upgrade_d7_taxonomy_term_vocabulary_3
+    - upgrade_d7_taxonomy_term_vocabulary_4
+    - upgrade_d7_taxonomy_term_vocabulary_5
+    - upgrade_d7_taxonomy_term_vocabulary_6
+    - upgrade_d7_taxonomy_term_vocabulary_7
+    - upgrade_d7_taxonomy_term_vocabulary_8
+    - upgrade_d7_taxonomy_term_publication_categories
+    - upgrade_d7_taxonomy_term

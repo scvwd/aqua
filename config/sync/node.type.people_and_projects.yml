@@ -1,0 +1,17 @@
+uuid: 9ef86dc5-4b12-4cce-9a28-0805fcbb8585
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'People and Projects'
+type: people_and_projects
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true

@@ -1,0 +1,17 @@
+uuid: 5e40da84-0f6b-4997-8902-860dba9c4781
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: HS
+type: hs
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true

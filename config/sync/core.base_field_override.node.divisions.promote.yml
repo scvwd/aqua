@@ -1,0 +1,22 @@
+uuid: 29b2ed24-18c9-4c86-b011-f21110bffc00
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.divisions
+id: node.divisions.promote
+field_name: promote
+entity_type: node
+bundle: divisions
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

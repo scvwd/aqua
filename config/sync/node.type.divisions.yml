@@ -1,0 +1,17 @@
+uuid: 12500709-646b-47b3-a2f0-54c7b564b915
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Divisions
+type: divisions
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

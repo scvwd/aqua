@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\coa_migrate\Component\Utility;
+namespace Drupal\aqua_migrate\Component\Utility;
 
 /**
  * @file
@@ -13,7 +13,7 @@ class CoAMigrationHelper{
         ->condition('type', 'city_clerk_content');
     $nids = $query->execute();
     if ($nid = reset($nids)) {
-      \Drupal::logger('coa_migrate')->notice('@type: node %title (<a href="/node/@nid" target="_blank">@nid</a>).',
+      \Drupal::logger('aqua_migrate')->notice('@type: node %title (<a href="/node/@nid" target="_blank">@nid</a>).',
         [
           '@type' => 'HTML Imported',
           '@nid' => $nid,
@@ -29,7 +29,7 @@ class CoAMigrationHelper{
         ->condition('type', 'calender_events');
     $nids = $query->execute();
     if ($nid = reset($nids)) {
-      \Drupal::logger('coa_migrate')->notice('@type: node %title (<a href="/node/@nid" target="_blank">@nid</a>).',
+      \Drupal::logger('aqua_migrate')->notice('@type: node %title (<a href="/node/@nid" target="_blank">@nid</a>).',
         [
           '@type' => 'HTML Imported',
           '@nid' => $nid,

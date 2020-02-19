@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\coa_migrate;
+namespace Drupal\aqua_migrate;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Config\ConfigFactoryOverrideInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 /**
  * Overrides migration configuration.
  */
-class CoaMigrateOverrides implements ConfigFactoryOverrideInterface {
+class AquaMigrateOverrides implements ConfigFactoryOverrideInterface {
 
   /**
    * The config factory.
@@ -65,7 +65,7 @@ class CoaMigrateOverrides implements ConfigFactoryOverrideInterface {
    * {@inheritdoc}
    */
   public function getCacheSuffix() {
-    return 'coa_migrate_overrides_3';
+    return 'aqua_migrate_overrides_3';
   }
 
   /**

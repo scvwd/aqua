@@ -2,11 +2,11 @@
 
 /**
  * @file
- * Contains coa_migrate.module.
+ * Contains aqua_migrate.module.
  */
 use Drupal\Core\Form\FormStateInterface;
 
-function coa_migrate_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function aqua_migrate_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $current_path = \Drupal::service('path.current')->getPath();
   if($current_path == '/admin/structure/migrate/manage/migrate_directory_nodes/migrations/import_node_events_xml/execute') {
     if($form_id == "migration_execute_form") {

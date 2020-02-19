@@ -1,0 +1,30 @@
+uuid: 24ea1294-55ec-45a0-ba61-a548d4fccf07
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_syslog_settings
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Syslog configuration'
+source:
+  plugin: variable
+  variables:
+    - syslog_facility
+    - syslog_format
+    - syslog_identity
+  source_module: syslog
+process:
+  facility: syslog_facility
+  format: syslog_format
+  identity: syslog_identity
+destination:
+  plugin: config
+  config_name: syslog.settings
+migration_dependencies:
+  required: {  }
+  optional: {  }

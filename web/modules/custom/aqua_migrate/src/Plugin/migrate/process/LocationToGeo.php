@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\coa_migrate\Plugin\migrate\process;
+namespace Drupal\aqua_migrate\Plugin\migrate\process;
 
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;

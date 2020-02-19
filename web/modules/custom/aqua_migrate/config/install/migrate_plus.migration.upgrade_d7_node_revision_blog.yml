@@ -1,0 +1,94 @@
+uuid: 646b8a2e-204d-49f9-9450-f324b34de4ea
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_blog
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node revisions (Blog entry)'
+source:
+  plugin: d7_node_revision
+  node_type: blog
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_blog/0/status: comment
+  taxonomy_vocabulary_3:
+    plugin: sub_process
+    source: taxonomy_vocabulary_3
+    process:
+      target_id: tid
+  body:
+    plugin: get
+    source: body
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: blog
+migration_dependencies:
+  required:
+    109: upgrade_d7_node_page
+    110: upgrade_d7_node_story
+    111: upgrade_d7_node_topichub
+    112: upgrade_d7_node_book
+    113: upgrade_d7_node_news
+    114: upgrade_d7_node_people_and_projects
+    115: upgrade_d7_node_training
+    116: upgrade_d7_node_diversity
+    117: upgrade_d7_node_featurednews
+    118: upgrade_d7_node_event
+    119: upgrade_d7_node_blog
+    120: upgrade_d7_node_webform
+    121: upgrade_d7_node_wiki
+    122: upgrade_d7_node_unit_home
+    123: upgrade_d7_node_division_home
+    124: upgrade_d7_node_office_home
+    125: upgrade_d7_node_iframe
+    126: upgrade_d7_node_videoplay
+    127: upgrade_d7_node_og
+    128: upgrade_d7_node_og2
+    129: upgrade_d7_node_slideshow_item
+    130: upgrade_d7_node_ceocorner
+    131: upgrade_d7_node_fcforms
+    132: upgrade_d7_node_hr_benefits_inclusion
+    133: upgrade_d7_node_date
+    134: upgrade_d7_node_nonagendaform
+    135: upgrade_d7_node_morenews
+    136: upgrade_d7_node_tie
+    137: upgrade_d7_node_techtips
+    138: upgrade_d7_node_sidebar
+    139: upgrade_d7_node_safe_clean_water_news
+    140: upgrade_d7_node_panel
+    141: upgrade_d7_node_photo_gallery
+    142: upgrade_d7_node_blueline
+    143: upgrade_d7_node_ceo
+    144: upgrade_d7_node_publications
+    145: upgrade_d7_node_it_calendar
+    146: upgrade_d7_node_dccs
+    147: upgrade_d7_node_poll
+    148: upgrade_d7_node_aprg
+    149: upgrade_d7_node_recruitment
+    150: upgrade_d7_node_wellness
+    151: upgrade_d7_node_cultivate_initiative
+    152: upgrade_d7_node_inclusion
+    153: upgrade_d7_node_featured_news2
+    154: upgrade_d7_node_workforce_calendar
+  optional: {  }

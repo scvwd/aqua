@@ -1,0 +1,22 @@
+uuid: 6bef0da9-8ab0-42e7-9860-6a43136ce7a8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - mayo
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: mayo_local_tasks
+theme: mayo
+region: content
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

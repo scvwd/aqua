@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\coa_migrate\Plugin\migrate_plus\data_fetcher;
+namespace Drupal\aqua_migrate\Plugin\migrate_plus\data_fetcher;
 
 use Drupal\migrate\MigrateException;
 use Drupal\migrate\MigrateExecutableInterface;

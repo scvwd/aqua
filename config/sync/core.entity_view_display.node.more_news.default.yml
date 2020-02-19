@@ -1,0 +1,49 @@
+uuid: e1fd39f3-ab20-45d0-b567-8cdbf8d5f1a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.more_news.body
+    - field.field.node.more_news.comment
+    - field.field.node.more_news.field_tags
+    - node.type.more_news
+  module:
+    - comment
+    - text
+    - user
+id: node.more_news.default
+targetEntityType: node
+bundle: more_news
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  comment:
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_tags:
+    weight: 103
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

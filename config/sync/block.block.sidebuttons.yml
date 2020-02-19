@@ -1,0 +1,31 @@
+uuid: 916e149c-8f68-46ad-90a4-7bf4cbbb818c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:96a2699c-47e3-478d-87f1-fff26dbf3422'
+  module:
+    - block_content
+    - system
+  theme:
+    - mayo
+id: sidebuttons
+theme: mayo
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'block_content:96a2699c-47e3-478d-87f1-fff26dbf3422'
+settings:
+  id: 'block_content:96a2699c-47e3-478d-87f1-fff26dbf3422'
+  label: sidebuttons
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

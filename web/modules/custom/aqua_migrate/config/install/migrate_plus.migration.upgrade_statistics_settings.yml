@@ -1,0 +1,29 @@
+uuid: 9c513fed-0032-4ba0-a0b1-e48941f15b39
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_statistics_settings
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 6'
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Statistics configuration'
+source:
+  plugin: variable
+  variables:
+    - statistics_enable_access_log
+    - statistics_flush_accesslog_timer
+    - statistics_count_content_views
+  source_module: statistics
+process:
+  count_content_views: statistics_count_content_views
+destination:
+  plugin: config
+  config_name: statistics.settings
+migration_dependencies:
+  required: {  }
+  optional: {  }

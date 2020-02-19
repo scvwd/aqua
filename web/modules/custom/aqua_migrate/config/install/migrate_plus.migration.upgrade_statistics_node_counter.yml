@@ -1,0 +1,83 @@
+uuid: 1d4e14a1-b8d2-4fa8-a767-4e1083a7216d
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_statistics_node_counter
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 6'
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node counter'
+source:
+  plugin: node_counter
+process:
+  nid:
+    -
+      plugin: migration_lookup
+      migration:
+        - upgrade_d6_node
+        - upgrade_d7_node
+      source: nid
+    -
+      plugin: skip_on_empty
+      method: row
+  totalcount: totalcount
+  daycount: daycount
+  timestamp: timestamp
+destination:
+  plugin: node_counter
+migration_dependencies:
+  optional:
+    - upgrade_d7_node_page
+    - upgrade_d7_node_story
+    - upgrade_d7_node_topichub
+    - upgrade_d7_node_book
+    - upgrade_d7_node_news
+    - upgrade_d7_node_people_and_projects
+    - upgrade_d7_node_training
+    - upgrade_d7_node_diversity
+    - upgrade_d7_node_featurednews
+    - upgrade_d7_node_event
+    - upgrade_d7_node_blog
+    - upgrade_d7_node_webform
+    - upgrade_d7_node_wiki
+    - upgrade_d7_node_unit_home
+    - upgrade_d7_node_division_home
+    - upgrade_d7_node_office_home
+    - upgrade_d7_node_iframe
+    - upgrade_d7_node_videoplay
+    - upgrade_d7_node_og
+    - upgrade_d7_node_og2
+    - upgrade_d7_node_slideshow_item
+    - upgrade_d7_node_ceocorner
+    - upgrade_d7_node_fcforms
+    - upgrade_d7_node_hr_benefits_inclusion
+    - upgrade_d7_node_date
+    - upgrade_d7_node_nonagendaform
+    - upgrade_d7_node_morenews
+    - upgrade_d7_node_tie
+    - upgrade_d7_node_techtips
+    - upgrade_d7_node_sidebar
+    - upgrade_d7_node_safe_clean_water_news
+    - upgrade_d7_node_panel
+    - upgrade_d7_node_photo_gallery
+    - upgrade_d7_node_blueline
+    - upgrade_d7_node_ceo
+    - upgrade_d7_node_publications
+    - upgrade_d7_node_it_calendar
+    - upgrade_d7_node_dccs
+    - upgrade_d7_node_poll
+    - upgrade_d7_node_aprg
+    - upgrade_d7_node_recruitment
+    - upgrade_d7_node_wellness
+    - upgrade_d7_node_cultivate_initiative
+    - upgrade_d7_node_inclusion
+    - upgrade_d7_node_featured_news2
+    - upgrade_d7_node_workforce_calendar
+    - upgrade_d6_node
+    - upgrade_d7_node
+  required: {  }

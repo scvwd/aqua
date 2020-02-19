@@ -1,0 +1,57 @@
+uuid: e8d1b6a2-6456-4a3c-acae-133c3040e852
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_aprg
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Nodes (aprg)'
+source:
+  plugin: d7_node
+  node_type: aprg
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_aprg/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_aprgvideo: field_aprgvideo
+  field_aprgphoto:
+    plugin: sub_process
+    source: field_aprgphoto
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+destination:
+  plugin: 'entity:node'
+  default_bundle: aprg
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

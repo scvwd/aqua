@@ -1,0 +1,47 @@
+uuid: 721b5fa1-7a9c-4c98-866d-52ced94cb389
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_techtips
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Nodes (Tech Tips)'
+source:
+  plugin: d7_node
+  node_type: techtips
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_techtips/0/status: comment
+  body:
+    plugin: get
+    source: body
+destination:
+  plugin: 'entity:node'
+  default_bundle: techtips
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

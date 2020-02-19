@@ -1,0 +1,30 @@
+uuid: 1ec103e9-155b-4d8a-b2d9-2757b2c2257f
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_vote
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Voting API Votes'
+source:
+  plugin: d7_vote
+process:
+  vote_id: vote_id
+  type: tag
+  entity_type: entity_type
+  entity_id: entity_id
+  value: value
+  value_type: value_type
+  user_id: uid
+  timestamp: timestamp
+  vote_source: vote_source
+destination:
+  plugin: 'entity:vote'
+  default_bundle: vote
+migration_dependencies:
+  required: {  }
+  optional: {  }

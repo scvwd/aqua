@@ -1,0 +1,19 @@
+uuid: e2145c2a-2e4b-4a93-8e4b-8d259c8dc307
+langcode: en
+status: true
+dependencies:
+  module:
+    - iframe
+    - node
+id: node.field_personnel
+field_name: field_personnel
+entity_type: node
+type: iframe
+settings: {  }
+module: iframe
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

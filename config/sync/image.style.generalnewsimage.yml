@@ -1,0 +1,15 @@
+uuid: d8edcaac-242b-4be8-a0d3-3dbbc2c9cc23
+langcode: en
+status: true
+dependencies: {  }
+name: generalnewsimage
+label: generalnewsimage
+effects:
+  676bf0ac-1c92-419e-ad88-eeeff32e84cf:
+    uuid: 676bf0ac-1c92-419e-ad88-eeeff32e84cf
+    id: image_scale
+    weight: 1
+    data:
+      width: 170
+      height: 120
+      upscale: false

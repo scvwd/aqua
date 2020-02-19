@@ -1,0 +1,21 @@
+uuid: 78cfd7a8-57b5-4167-b2d7-534c8554a952
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.featured_news
+  module:
+    - text
+id: node.featured_news.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: featured_news
+label: teaser
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

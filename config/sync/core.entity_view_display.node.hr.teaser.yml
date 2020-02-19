@@ -1,0 +1,48 @@
+uuid: d33efc32-dae1-4c70-9507-b395045ec746
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hr.body
+    - field.field.node.hr.comment
+    - field.field.node.hr.field_image
+    - field.field.node.hr.field_tags
+    - field.field.node.hr.field_teaser
+    - node.type.hr
+  module:
+    - comment
+    - text
+    - user
+id: node.hr.teaser
+targetEntityType: node
+bundle: hr
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  comment:
+    type: comment_default
+    weight: 2
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_image: true
+  field_tags: true
+  field_teaser: true

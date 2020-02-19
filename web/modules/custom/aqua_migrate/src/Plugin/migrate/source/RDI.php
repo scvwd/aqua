@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\coa_migrate\Plugin\migrate\source;
+namespace Drupal\aqua_migrate\Plugin\migrate\source;
 
 use Drupal\Component\Plugin\ConfigurablePluginInterface;
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
@@ -14,7 +14,7 @@ use Drupal\migrate\Plugin\MigrationInterface;
  *
  * @MigrateSource(
  *   id = "rdi",
- *   source_module = "coa_migrate"
+ *   source_module = "aqua_migrate"
  * )
  */
 class RDI extends SourcePluginBase implements ConfigurablePluginInterface {
@@ -148,7 +148,7 @@ class RDI extends SourcePluginBase implements ConfigurablePluginInterface {
       'keys' => [],
       'path' => '',
       'filter' => '',
-      'iterator_class' => 'Drupal\coa_migrate\RecursiveDirectoryIterator',
+      'iterator_class' => 'Drupal\aqua_migrate\RecursiveDirectoryIterator',
     ];
   }
 

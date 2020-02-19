@@ -1,0 +1,22 @@
+uuid: c1e1d65c-b183-483d-b2e5-3344af720e60
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - aqua
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: aqua_content
+theme: aqua
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

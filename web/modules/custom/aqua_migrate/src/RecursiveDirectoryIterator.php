@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\coa_migrate;
+namespace Drupal\aqua_migrate;
 
 /**
  * Defines a RDI object.
  *
- * @package Drupal\coa_migrate.
+ * @package Drupal\aqua_migrate.
  *
  * Extends /RecursiveDirectoryIterator to:
  * - filter file types

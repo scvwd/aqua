@@ -1,0 +1,22 @@
+uuid: 6167b4ac-1124-4ce6-a2d9-3f32ef5a18ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - aqua
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: aqua_messages
+theme: aqua
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

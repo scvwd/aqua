@@ -1,0 +1,21 @@
+uuid: 3aab0d08-15de-498a-b2ef-3bafe4f3da2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.people_and_projects
+  module:
+    - text
+id: node.people_and_projects.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: people_and_projects
+label: Teaser
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

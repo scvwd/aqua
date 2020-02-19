@@ -1,0 +1,22 @@
+uuid: 8e2483cb-2dbf-4ee6-93e3-1aa3e841ba86
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: divisionpath
+label: divisionpath
+type: 'canonical_entities:node'
+pattern: 'Divisions/[node:title]'
+selection_criteria:
+  c96ad805-ded8-457e-8a80-956d2e58c975:
+    id: node_type
+    bundles:
+      divisions: divisions
+    negate: false
+    context_mapping:
+      node: node
+    uuid: c96ad805-ded8-457e-8a80-956d2e58c975
+selection_logic: and
+weight: -5
+relationships: {  }
